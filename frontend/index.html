@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h3>Gestão de Aeronaves</h3>
+    </div>
+    <form class="row g-3 m-5 needs-validation">
+      <div class="col-md-12">
+        <label for="marca" class="form-label">Marca</label>
+        <select id="marca" class="form-select" required>
+          <option selected>Selcione uma marca</option>
+          <option value="Embraer">Embraer</option>
+          <option value="Boeing">Boeing</option>
+          <option value="Airbus">Airbus</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        <label for="aeronave" class="form-label">Aeronave</label>
+        <input type="text" class="form-control" id="aeronave" required>
+      </div>
+      <div class="col-md-6">
+        <label for="ano" class="form-label">Ano</label>
+        <input type="text" class="form-control" id="ano" required>
+      </div>
+      <div class="col-md-6">
+        <label for="vendido" class="form-label">Vendido</label>
+        <select id="vendido" class="form-select" required>
+          <option selected>Vendido</option>
+          <option value="1">Sim</option>
+          <option value="0">Não</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="button">Salvar</button>
+      </div>
+    </form>
+    <div class="row g-3 m-5">
+      <div class="col-4">
+        <p>Década 90: <spam id="dec_90"></spam></p>
+      </div>
+      <div class="col-4">
+        <p>Década 00: <spam id="dec_00"></spam></p>
+      </div>
+      <div class="col-4">
+        <p>Essa semana: <spam id="dec_now"></spam></p>
+      </div>
+    </div>
+    <div class="row g-3 m-5">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Ano</th>
+              <th>Vendido</th>
+              <th>Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row g-3 m-5">
+      <div class="col-12">
+        <p>Embraer: <spam id="mar_emb"></spam></p>
+        <p>Boeing: <spam id="mar_boe"></spam></p>
+        <p>Airbus: <spam id="mar_air"></spam></p>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+  </body>
+</html>
