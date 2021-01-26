@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.aeronave.datasource.model.AeronaveModel;
-import com.example.aeronave.repository.AeronaveRepository;
+import com.example.aeronave.resource.model.AeronaveInfoResource;
+import com.example.aeronave.resource.model.AeronavePorEmpresa;
 import com.example.aeronave.resource.model.AeronaveResource;
 import com.example.aeronave.service.AeronaveServiceImpl;
 
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/api")
 public class AeronaveController {
@@ -34,6 +35,16 @@ public class AeronaveController {
 	@GetMapping(path = "/aeronave/{id}")
 	public AeronaveModel buscaPorId(@PathVariable(name = "id", required = true) Long id) {
 		return aeronaveService.buscarPorId(id);
+	}
+	
+	@GetMapping(path = "/aeronave/info")
+	public AeronaveInfoResource listaInfo() {
+		return aeronaveService.verificaInfo();
+	}
+	
+	@GetMapping(path = "/aeronave/porEmpresa")
+	public List<AeronavePorEmpresa> listaAeronavePorEmpresa() {
+		return aeronaveService.verificaInforPorEmpresa();
 	}
 	
 	@PostMapping(path = "/aeronave")

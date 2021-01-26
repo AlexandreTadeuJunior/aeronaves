@@ -8,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.aeronave.datasource.model.AeronaveModel;
+import com.example.aeronave.repository.AeronaveInfoRepository;
+import com.example.aeronave.repository.AeronavePorEmpresaInterface;
 import com.example.aeronave.repository.AeronaveRepository;
+import com.example.aeronave.resource.model.AeronaveInfoResource;
+import com.example.aeronave.resource.model.AeronavePorEmpresa;
 import com.example.aeronave.resource.model.AeronaveResource;
 
 @Service
@@ -19,6 +23,12 @@ public class AeronaveServiceImpl {
 	
 	@Autowired
 	private AeronaveConversor aeronaveConversor;
+	
+	@Autowired
+	private AeronaveInfoRepository aeronaveInfoRepository;
+	
+	@Autowired
+	private AeronavePorEmpresaInterface aeronavePorEmpresaInterface;
 	
 	private static final Logger LOG = Logger.getLogger(AeronaveServiceImpl.class);
 	
@@ -100,5 +110,31 @@ public class AeronaveServiceImpl {
 		} catch (Exception e) {
 			LOG.error("Não foi possivel atualizar a aeronave Id: " + id);
 		}
+	}
+
+	/**
+	 * Pegando as informações da tela que necessitam de logica
+	 * @return
+	 */
+	public AeronaveInfoResource verificaInfo() {
+		// Criando um obj
+		AeronaveInfoResource info = new AeronaveInfoResource();
+		
+		// Setando valor para o Obj		
+		info.setAnosDoisMil(String.valueOf(aeronaveInfoRepository.verificaInfoAnosDoisMil()));
+		info.setAnosNoventa(String.valueOf(aeronaveInfoRepository.verificaInfoAnosNoventa()));
+		info.setAnoNow(String.valueOf(aeronaveInfoRepository.verificaAnoNow()));
+		
+		// Retornando o Obj
+		return info;
+	}
+	
+	/**
+	 * Lista de aeronaves por empresa
+	 * @return
+	 */
+	public List<AeronavePorEmpresa> verificaInforPorEmpresa() {
+		List<AeronavePorEmpresa> list = aeronavePorEmpresaInterface.aeronavesPorEmpresa();
+		return list;
 	}
 }
