@@ -3,6 +3,7 @@ package com.example.aeronave.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.example.aeronave.repository.AeronaveRepository;
 import com.example.aeronave.resource.model.AeronaveResource;
 import com.example.aeronave.service.AeronaveServiceImpl;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping(path = "/api")
 public class AeronaveController {
