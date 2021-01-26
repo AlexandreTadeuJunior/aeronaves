@@ -12,7 +12,7 @@
       <div class="col-md-12">
         <label for="marca" class="form-label">Marca</label>
         <select id="marca" class="form-select" required>
-          <option selected>Selcione uma marca</option>
+          <option selected value="default">Selcione uma marca</option>
           <option value="Embraer">Embraer</option>
           <option value="Boeing">Boeing</option>
           <option value="Airbus">Airbus</option>
@@ -24,18 +24,18 @@
       </div>
       <div class="col-md-6">
         <label for="ano" class="form-label">Ano</label>
-        <input type="text" class="form-control" id="ano" required>
+        <input type="text" class="form-control" id="ano" maxlength="4" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
       </div>
       <div class="col-md-6">
         <label for="vendido" class="form-label">Vendido</label>
         <select id="vendido" class="form-select" required>
-          <option selected>Vendido</option>
-          <option value="1">Sim</option>
-          <option value="0">Não</option>
+          <option selected value="default">Vendido</option>
+          <option value="true">Sim</option>
+          <option value="false">Não</option>
         </select>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary" type="button">Salvar</button>
+        <button class="btn btn-primary" type="button" id="btn_salvar">Salvar</button>
       </div>
     </form>
     <div class="row g-3 m-5">
@@ -46,7 +46,7 @@
         <p>Década 00: <spam id="dec_00"></spam></p>
       </div>
       <div class="col-4">
-        <p>Essa semana: <spam id="dec_now"></spam></p>
+        <p>Esse ano: <spam id="dec_now"></spam></p>
       </div>
     </div>
     <div class="row g-3 m-5">
@@ -62,16 +62,13 @@
               <th>Excluir</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="corpo_table">
           </tbody>
         </table>
       </div>
     </div>
     <div class="row g-3 m-5">
-      <div class="col-12">
-        <p>Embraer: <spam id="mar_emb"></spam></p>
-        <p>Boeing: <spam id="mar_boe"></spam></p>
-        <p>Airbus: <spam id="mar_air"></spam></p>
+      <div class="col-12" id="info_empresas">
       </div>
     </div>
     <script type="text/javascript" src="js/bootstrap/bootstrap.bundle.min.js"></script>
